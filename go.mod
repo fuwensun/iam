@@ -66,10 +66,18 @@ require (
 	github.com/tpkeeper/gin-dump v1.0.0
 	github.com/vmihailenco/msgpack v3.3.3+incompatible
 	github.com/zsais/go-gin-prometheus v0.1.0
+<<<<<<< HEAD
 	go.uber.org/zap v1.17.0
 	golang.org/x/crypto v0.0.0-20210616213533-5ff15b29337e // indirect
 	golang.org/x/sync v0.0.0-20210220032951-036812b2e83c
 	golang.org/x/sys v0.0.0-20210616094352-59db8d763f22 // indirect
+=======
+	go.uber.org/zap v1.16.0
+	golang.org/x/lint v0.0.0-20200302205851-738671d3881b // indirect
+	golang.org/x/mod v0.4.2 // indirect
+	golang.org/x/sync v0.0.0-20210220032951-036812b2e83c
+	golang.org/x/sys v0.0.0-20210426230700-d19ff857e887 // indirect
+>>>>>>> chore: update misc files
 	golang.org/x/text v0.3.6 // indirect
 	golang.org/x/time v0.0.0-20210220033141-f8bda1e9f3ba
 	golang.org/x/tools v0.1.4
