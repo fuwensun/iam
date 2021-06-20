@@ -155,12 +155,10 @@ func (s *GenericAPIServer) Run() error {
 
 		if err := s.insecureServer.ListenAndServe(); err != nil && !errors.Is(err, http.ErrServerClosed) {
 			log.Fatal(err.Error())
-
 			return err
 		}
 
 		log.Infof("Server on %s stopped", s.InsecureServingInfo.Address)
-
 		return nil
 	})
 
@@ -174,12 +172,18 @@ func (s *GenericAPIServer) Run() error {
 
 		if err := s.secureServer.ListenAndServeTLS(cert, key); err != nil && !errors.Is(err, http.ErrServerClosed) {
 			log.Fatal(err.Error())
+<<<<<<< HEAD
 
+=======
+>>>>>>> refactor: add missing code_generated.go
 			return err
 		}
 
 		log.Infof("Server on %s stopped", s.SecureServingInfo.Address())
+<<<<<<< HEAD
 
+=======
+>>>>>>> refactor: add missing code_generated.go
 		return nil
 	})
 
