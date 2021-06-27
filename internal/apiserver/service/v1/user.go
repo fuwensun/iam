@@ -29,8 +29,9 @@ type UserSrv interface {
 	ChangePassword(ctx context.Context, user *v1.User) error
 }
 
+// sfw 实现了上面的 UserSrv interface 
 type userService struct {
-	store store.Factory
+	store store.Factory // sfw 引用了 store.Factory interface
 }
 
 var _ UserSrv = (*userService)(nil)

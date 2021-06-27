@@ -25,8 +25,9 @@ type PolicySrv interface {
 	List(ctx context.Context, username string, opts metav1.ListOptions) (*v1.PolicyList, error)
 }
 
+// sfw 实现了上面的 PolicySrv interface 
 type policyService struct {
-	store store.Factory
+	store store.Factory // sfw 引用了 store.Factory interface
 }
 
 var _ PolicySrv = (*policyService)(nil)

@@ -16,7 +16,7 @@ type Service interface {
 }
 
 type service struct {
-	store store.Factory
+	store store.Factory // sfw 引用了 store.Factory interface
 }
 
 // NewService returns Service interface.

@@ -25,8 +25,9 @@ type SecretSrv interface {
 	List(ctx context.Context, username string, opts metav1.ListOptions) (*v1.SecretList, error)
 }
 
+// sfw 实现了上面的 SecretSrv interface 
 type secretService struct {
-	store store.Factory
+	store store.Factory // sfw 引用了 store.Factory interface
 }
 
 var _ SecretSrv = (*secretService)(nil)
