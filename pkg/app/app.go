@@ -169,6 +169,7 @@ func NewApp(name string, basename string, opts ...Option) *App {
 	return a
 }
 
+// sfw 构建命令
 func (a *App) buildCommand() {
 	cliflag.InitFlags()
 
@@ -192,7 +193,7 @@ func (a *App) buildCommand() {
 		cmd.SetHelpCommand(helpCommand(a.name))
 	}
 	if a.runFunc != nil {
-		cmd.RunE = a.runCommand
+		cmd.RunE = a.runCommand // sfw 运行命令
 	}
 
 	var namedFlagSets cliflag.NamedFlagSets
@@ -241,6 +242,7 @@ func (a *App) Command() *cobra.Command {
 	return a.cmd
 }
 
+// sfw 运行命令
 func (a *App) runCommand(cmd *cobra.Command, args []string) error {
 	printWorkingDir()
 	cliflag.PrintFlags(cmd.Flags())
