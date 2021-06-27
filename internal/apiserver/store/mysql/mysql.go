@@ -16,7 +16,7 @@ import (
 	genericoptions "github.com/marmotedu/iam/internal/pkg/options"
 	"github.com/marmotedu/iam/pkg/db"
 )
-
+// sfw 实现了 Factory interface (定义在 ../store.go 中)
 type datastore struct {
 	db *gorm.DB
 

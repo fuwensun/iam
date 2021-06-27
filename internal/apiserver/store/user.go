@@ -12,6 +12,7 @@ import (
 )
 
 // UserStore defines the user storage interface.
+// sfw 实现在 mysql/user
 type UserStore interface {
 	Create(ctx context.Context, user *v1.User, opts metav1.CreateOptions) error
 	Update(ctx context.Context, user *v1.User, opts metav1.UpdateOptions) error

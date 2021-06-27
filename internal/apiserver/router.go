@@ -49,6 +49,7 @@ func installAPI(g *gin.Engine) *gin.Engine {
 		// user RESTful resource
 		userv1 := v1.Group("/users")
 		{
+			// sfw 
 			userHandler := user.NewUserHandler(storeIns)
 
 			userv1.POST("", userHandler.Create)

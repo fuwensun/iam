@@ -9,6 +9,7 @@ package store
 var client Factory
 
 // Factory defines the iam platform storage interface.
+// sfw
 type Factory interface {
 	Users() UserStore
 	Secrets() SecretStore

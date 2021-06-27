@@ -17,6 +17,7 @@ import (
 	"github.com/marmotedu/iam/internal/pkg/util/gormutil"
 )
 
+// sfw 实现了 UserStore interface (定义在 ../user.go 中)
 type users struct {
 	db *gorm.DB
 }
