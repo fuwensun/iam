@@ -12,6 +12,7 @@ import (
 )
 
 // SecretStore defines the secret storage interface.
+// sfw 实现在 mysql/secret.go
 type SecretStore interface {
 	Create(ctx context.Context, secret *v1.Secret, opts metav1.CreateOptions) error
 	Update(ctx context.Context, secret *v1.Secret, opts metav1.UpdateOptions) error
