@@ -42,7 +42,7 @@ func newUsers(srv *service) *userService {
 
 // ListUser returns user list in the storage. This function has a good performance.
 func (u *userService) List(ctx context.Context, opts metav1.ListOptions) (*v1.UserList, error) {
-	users, err := u.store.Users().List(ctx, opts)
+	users, err := u.store.Users().List(ctx, opts) //sfw Users() 是抽象工厂 store 的产品
 	if err != nil {
 		log.L(ctx).Errorf("list users from storage failed: %s", err.Error())
 
