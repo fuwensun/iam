@@ -16,6 +16,7 @@ import (
 	genericoptions "github.com/marmotedu/iam/internal/pkg/options"
 	"github.com/marmotedu/iam/pkg/db"
 )
+
 // sfw 实现了 Factory interface (定义在 ../store.go 中)
 type datastore struct {
 	db *gorm.DB
@@ -56,7 +57,7 @@ func GetMySQLFactoryOr(opts *genericoptions.MySQLOptions) (store.Factory, error)
 	if opts == nil && mysqlFactory == nil {
 		return nil, fmt.Errorf("failed to get mysql store fatory")
 	}
-
+	// sfw 问题要删除这几行？？？ 
 	var err error
 	var dbIns *gorm.DB
 	if err != nil {
