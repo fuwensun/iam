@@ -11,8 +11,8 @@ import (
 
 // UserHandler create a user handler used to handle request for user resource.
 type UserHandler struct {
-	srv   srvv1.Service
-	store store.Factory
+	srv   srvv1.Service // sfw service
+	store store.Factory // sfw store
 }
 
 // NewUserHandler creates a user handler.
