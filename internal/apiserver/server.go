@@ -99,7 +99,7 @@ func (s *apiServer) PrepareRun() preparedAPIServer {
 }
 
 func (s preparedAPIServer) Run() error {
-	go s.gRPCAPIServer.Run()
+	go s.gRPCAPIServer.Run() // sfw 此处真正运行 server
 
 	// start shutdown managers
 	if err := s.gs.Start(); err != nil {
