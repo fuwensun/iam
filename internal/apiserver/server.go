@@ -99,10 +99,10 @@ func (s *apiServer) PrepareRun() preparedAPIServer {
 }
 
 func (s preparedAPIServer) Run() error {
-	go s.gRPCAPIServer.Run() // sfw 此处真正运行 server
+	go s.gRPCAPIServer.Run() // sfw 此处运行 grpc server
 
 	// start shutdown managers
-	if err := s.gs.Start(); err != nil {
+	if err := s.gs.Start(); err != nil {	// sfw 此处运行 http server
 		log.Fatalf("start shutdown manager failed: %s", err.Error())
 	}
 
