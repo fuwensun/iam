@@ -43,14 +43,13 @@ func installAPI(g *gin.Engine) *gin.Engine {
 	})
 
 	// v1 handlers, requiring authentication
-	storeIns, _ := mysql.GetMySQLFactoryOr(nil)
+	storeIns, _ := mysql.GetMySQLFactoryOr(nil) // sfw 
 	v1 := g.Group("/v1")
 	{
 		// user RESTful resource
 		userv1 := v1.Group("/users")
 		{
-			// sfw 
-			userHandler := user.NewUserHandler(storeIns)
+			userHandler := user.NewUserHandler(storeIns)// sfw 
 
 			userv1.POST("", userHandler.Create)
 			userv1.Use(auto.AuthFunc(), middleware.Validation())
@@ -68,7 +67,7 @@ func installAPI(g *gin.Engine) *gin.Engine {
 		// policy RESTful resource
 		policyv1 := v1.Group("/policies", middleware.Publish())
 		{
-			policyHandler := policy.NewPolicyHandler(storeIns)
+			policyHandler := policy.NewPolicyHandler(storeIns)// sfw 
 
 			policyv1.POST("", policyHandler.Create)
 			policyv1.DELETE("", policyHandler.DeleteCollection)
@@ -81,7 +80,7 @@ func installAPI(g *gin.Engine) *gin.Engine {
 		// secret RESTful resource
 		secretv1 := v1.Group("/secrets", middleware.Publish())
 		{
-			secretHandler := secret.NewSecretHandler(storeIns)
+			secretHandler := secret.NewSecretHandler(storeIns)// sfw 
 
 			secretv1.POST("", secretHandler.Create)
 			secretv1.DELETE(":name", secretHandler.Delete)
