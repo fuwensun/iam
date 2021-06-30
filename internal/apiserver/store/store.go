@@ -11,8 +11,8 @@ var client Factory
 // Factory defines the iam platform storage interface.
 // sfw 实现在 mysql/mysql.go
 type Factory interface {
-	Users() UserStore
 	Secrets() SecretStore
+	Users() UserStore
 	Policies() PolicyStore
 	Close() error
 }

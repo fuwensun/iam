@@ -155,11 +155,12 @@ func WithDefaultValidArgs() Option {
 // NewApp creates a new application instance based on the given application name,
 // binary name, and other options.
 func NewApp(name string, basename string, opts ...Option) *App {
+	// sfw 必须的参数
 	a := &App{
 		name:     name,
 		basename: basename,
 	}
-
+	// sfw 可选的参数
 	for _, o := range opts {
 		o(a)
 	}

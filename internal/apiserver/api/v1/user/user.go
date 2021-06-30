@@ -12,8 +12,8 @@ import (
 // UserHandler create a user handler used to handle request for user resource.
 type UserHandler struct {
 	// sfw 高层模块依赖低层模块的接口(抽象)
-	srv   srvv1.Service // sfw Service interface
-	store store.Factory // sfw Factory interface
+	srv   srvv1.Service // sfw Service interface 定义在 ../../service
+	store store.Factory // sfw Factory interface 定义在 ../../store
 }
 
 // NewUserHandler creates a user handler.

@@ -11,8 +11,8 @@ import (
 
 // PolicyHandler create a policy handler used to handle request for policy resource.
 type PolicyHandler struct {
-	srv   srvv1.Service
-	store store.Factory
+	srv   srvv1.Service // sfw Service interface 定义在 ../../service
+	store store.Factory // sfw Factory interface 定义在 ../../store
 }
 
 // NewPolicyHandler creates a policy handler.

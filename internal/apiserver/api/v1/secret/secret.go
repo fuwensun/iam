@@ -11,8 +11,8 @@ import (
 
 // SecretHandler create a secret handler used to handle request for secret resource.
 type SecretHandler struct {
-	srv   srvv1.Service
-	store store.Factory
+	srv   srvv1.Service // sfw Service interface 定义在 ../../service
+	store store.Factory // sfw Factory interface 定义在 ../../store
 }
 
 // NewSecretHandler creates a secret handler.
