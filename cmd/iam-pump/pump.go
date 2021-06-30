@@ -15,7 +15,7 @@ import (
 	"github.com/marmotedu/iam/internal/pump"
 )
 
-func main() {
+func main() { // sfw main 入口
 	rand.Seed(time.Now().UTC().UnixNano())
 	if len(os.Getenv("GOMAXPROCS")) == 0 {
 		runtime.GOMAXPROCS(runtime.NumCPU())

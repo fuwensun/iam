@@ -27,7 +27,7 @@ func NewApp(basename string) *app.App {
 		app.WithOptions(opts),
 		app.WithDescription(commandDesc),
 		app.WithDefaultValidArgs(),
-		app.WithRunFunc(run(opts)),
+		app.WithRunFunc(run(opts)), // 此处仅设置 runFunc,没有运行
 	)
 
 	return application
