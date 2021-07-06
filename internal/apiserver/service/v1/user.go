@@ -174,7 +174,7 @@ func (u *userService) Get(ctx context.Context, username string, opts metav1.GetO
 }
 
 func (u *userService) Update(ctx context.Context, user *v1.User, opts metav1.UpdateOptions) error {
-	if err := u.store.Users().Update(ctx, user, opts); err != nil {
+	if err := u.store.Users().Update(ctx, user, opts); err != nil { // 调用 store
 		return errors.WithCode(code.ErrDatabase, err.Error())
 	}
 

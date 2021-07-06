@@ -22,6 +22,7 @@ type Factory interface {
 }
 
 // Service
+
 type UserSrv interface {
 	Create(ctx context.Context, user *v1.User, opts metav1.CreateOptions) error
 	Update(ctx context.Context, user *v1.User, opts metav1.UpdateOptions) error
@@ -91,3 +92,19 @@ type PolicyStore interface {
 	List(ctx context.Context, username string, opts metav1.ListOptions) (*v1.PolicyList, error)
 }
 
+type datastore struct {
+	db *gorm.DB
+}
+
+type datastore struct {
+	cli             *clientv3.Client
+	requestTimeout  time.Duration
+	leaseTTLTimeout int
+
+	leaseID            clientv3.LeaseID
+	onKeepaliveFailure func()
+	leaseLiving        bool
+
+	watchers  map[string]*EtcdWatcher
+	namespace string
+}

@@ -27,7 +27,7 @@ func (u *UserHandler) Update(c *gin.Context) {
 		return
 	}
 
-	user, err := u.store.Users().Get(c, c.Param("name"), metav1.GetOptions{})
+	user, err := u.store.Users().Get(c, c.Param("name"), metav1.GetOptions{}) // 调用 store 
 	if err != nil {
 		core.WriteResponse(c, errors.WithCode(code.ErrDatabase, err.Error()), nil)
 
@@ -46,7 +46,7 @@ func (u *UserHandler) Update(c *gin.Context) {
 	}
 
 	// Save changed fields.
-	if err := u.srv.Users().Update(c, user, metav1.UpdateOptions{}); err != nil {
+	if err := u.srv.Users().Update(c, user, metav1.UpdateOptions{}); err != nil { // 调用 srv
 		core.WriteResponse(c, err, nil)
 
 		return
