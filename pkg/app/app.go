@@ -194,33 +194,33 @@ func (a *App) buildCommand() {
 	if a.runFunc != nil {
 		cmd.RunE = a.runCommand
 	}
-
-	var namedFlagSets cliflag.NamedFlagSets
+	
+	var namedFlagSets cliflag.NamedFlagSets // sfw namedFlagSets 中引用了 Pflag 包
 	if a.options != nil {
-		namedFlagSets = a.options.Flags()
+		namedFlagSets = a.options.Flags()	// sfw 通过 a.options.Flags() 创建并返回了一批 FlagSet，a.options.Flags() 函数会将 FlagSet 进行分组
 		fs := cmd.Flags()
-		for _, f := range namedFlagSets.FlagSets {
+		for _, f := range namedFlagSets.FlagSets { // sfw 通过一个 for 循环，将 namedFlagSets 中保存的 FlagSet 添加到 Cobra 应用框架中的 FlagSet 中
 			fs.AddFlagSet(f)
 		}
 
 		usageFmt := "Usage:\n  %s\n"
-		cols, _, _ := term.TerminalSize(cmd.OutOrStdout())
-		cmd.SetHelpFunc(func(cmd *cobra.Command, args []string) {
+		cols, _, _ := term.TerminalSize(cmd.OutOrStdout()) // sfw 获得终端的尺寸
+		cmd.SetHelpFunc(func(cmd *cobra.Command, args []string) {	// sfw 指定帮助信息
 			fmt.Fprintf(cmd.OutOrStdout(), "%s\n\n"+usageFmt, cmd.Long, cmd.UseLine())
 			cliflag.PrintSections(cmd.OutOrStdout(), namedFlagSets, cols)
 		})
-		cmd.SetUsageFunc(func(cmd *cobra.Command) error {
+		cmd.SetUsageFunc(func(cmd *cobra.Command) error {	// sfw 指定使用信息
 			fmt.Fprintf(cmd.OutOrStderr(), usageFmt, cmd.UseLine())
 			cliflag.PrintSections(cmd.OutOrStderr(), namedFlagSets, cols)
 
 			return nil
 		})
 	}
-
+	// sfw 在 global 分组下添加 --version 和 --config 选项
 	if !a.noVersion {
 		verflag.AddFlags(namedFlagSets.FlagSet("global"))
 	}
-	if !a.noConfig {
+	if !a.noConfig { // sfw 如果noconfig=flase 那么在命令行参数global分组中添加-c，--config FILE 选项
 		addConfigFlag(a.basename, namedFlagSets.FlagSet("global"))
 	}
 	globalflag.AddGlobalFlags(namedFlagSets.FlagSet("global"), cmd.Name())
